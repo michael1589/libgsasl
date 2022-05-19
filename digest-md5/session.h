@@ -42,13 +42,13 @@ struct _Gsasl_digest_md5_encrypt_state
   RC4_KEY rc4_key_encrypt;
   RC4_KEY rc4_key_decrypt;
 
-  des_key_schedule keysched_encrypt;  /* key schedule for des initialization */
-  des_cblock ivec_encrypt;            /* initial vector for encoding */
-  des_key_schedule keysched2_encrypt; /* key schedule for 3des initialization */
+  DES_key_schedule keysched_encrypt;  /* key schedule for des initialization */
+  DES_cblock ivec_encrypt;            /* initial vector for encoding */
+  DES_key_schedule keysched2_encrypt; /* key schedule for 3des initialization */
 
-  des_key_schedule keysched_decrypt;  /* key schedule for des initialization */
-  des_cblock ivec_decrypt;            /* initial vector for encoding */
-  des_key_schedule keysched2_decrypt; /* key schedule for 3des initialization */
+  DES_key_schedule keysched_decrypt;  /* key schedule for des initialization */
+  DES_cblock ivec_decrypt;            /* initial vector for encoding */
+  DES_key_schedule keysched2_decrypt; /* key schedule for 3des initialization */
 };
 
 typedef struct _Gsasl_digest_md5_encrypt_state _Gsasl_digest_md5_encrypt_state;
