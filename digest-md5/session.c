@@ -87,7 +87,7 @@ int digest_md5_crypt_init(_Gsasl_digest_md5_encrypt_state *state)
             slidebits(keybuf, my_key + 7);
 
             des_key_sched((DES_cblock *) keybuf, state->keysched2_encrypt);
-            memcpy(state->ivec_encrypt, ((char *) my_key) + 8, 8);
+            memcpy(&state->ivec_encrypt, ((char *) my_key) + 8, 8);
 
             slidebits(keybuf, peer_key);
             des_key_sched((DES_cblock *) keybuf, state->keysched_decrypt);
@@ -97,7 +97,7 @@ int digest_md5_crypt_init(_Gsasl_digest_md5_encrypt_state *state)
             des_key_sched((DES_cblock *) keybuf, state->keysched2_decrypt);
 
 
-            memcpy(state->ivec_decrypt, ((char *) peer_key) + 8, 8);
+            memcpy(&state->ivec_decrypt, ((char *) peer_key) + 8, 8);
 
 
          } else if (state->cipher == DIGEST_MD5_CIPHER_DES) {
@@ -107,12 +107,12 @@ int digest_md5_crypt_init(_Gsasl_digest_md5_encrypt_state *state)
 
             des_key_sched((DES_cblock *) keybuf, state->keysched_encrypt);
 
-            memcpy(state->ivec_encrypt, ((char *) my_key) + 8, 8);
+            memcpy(&state->ivec_encrypt, ((char *) my_key) + 8, 8);
 
             slidebits(keybuf, peer_key);
             des_key_sched((DES_cblock *) keybuf, state->keysched_decrypt);
 
-            memcpy(state->ivec_decrypt, ((char *) peer_key) + 8, 8);
+            memcpy(&state->ivec_decrypt, ((char *) peer_key) + 8, 8);
          }
 
     } else {
